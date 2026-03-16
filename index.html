@@ -521,7 +521,9 @@ function renderQ() {
   let qText = S.lang === 'de' ? q.de : q.en;
   if (first) {
     if (S.lang === 'de') {
-      qText = qText.replace(/[Dd]ieser Person/g, `von ${first}`).replace(/[Dd]iese Person/g, first);
+      qText = qText.replace(/die [Dd]ieser Person/g, `die ${first}`)
+                   .replace(/[Dd]ieser Person/g, `von ${first}`)
+                   .replace(/[Dd]iese Person/g, first);
       if (S.gender === 'm') {
         qText = qText.replace(/wenn sie kritisiert wird/gi, 'wenn er kritisiert wird')
                      .replace(/könnte ihr besonders/gi, 'könnte ihm besonders');
